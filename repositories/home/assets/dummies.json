@@ -1,0 +1,34 @@
+{
+    "items": [
+    {
+        "name": "Đăng kí dịch vụ\nchăm sóc",
+        "icon": "packages/home/assets/images/patient_list.png",
+        "deeplink": ""
+    },
+    {
+        "name": "Trả cứu kết quả xét\nnghiệm",
+        "icon": "packages/home/assets/images/test.png",
+        "deeplink": "vnkm://test-result"
+    },
+    {
+        "name": "Khai báo/ cập nhật\ntoàn dân",
+        "icon": "packages/home/assets/images/report.png",
+        "deeplink": "vnkm://declare-guests"
+    },
+    {
+        "name": "Xét nghiệm\nCovid-19",
+        "icon": "packages/home/assets/images/vali.png",
+        "deeplink": "vnkm://test-covid"
+    },
+    {
+        "name": "Đăng ký tiêm\nphòng Covid-19",
+        "icon": "packages/home/assets/images/register_vaccine.png",
+        "deeplink": "vnkm://vaccine"
+    },
+    {
+        "name": "Check-in\nđịa điểm",
+        "icon": "packages/home/assets/images/Check_in.png",
+        "deeplink": "vnkm://check-in"
+    }
+]
+}
