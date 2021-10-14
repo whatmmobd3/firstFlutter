@@ -31,68 +31,70 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0xFFFDFDFD),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-              // Allows the user to reveal the app bar if they begin scrolling
-              // back up the list of items.
-              floating: false,
-              stretch: true,
-              elevation: 0,
-              // Display a placeholder widget to visualize the shrinking size.
-              flexibleSpace: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                var top = constraints.biggest.height;
-                var background = Image.asset(
-                  Img.headerFaq,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.bottomCenter,
-                );
-                return Stack(
-                  children: [
-                    Positioned.fill(
-                        child: Stack(
-                      children: [
-                        Positioned.fill(
-                            child: Visibility(
-                                visible: top < 160,
-                                child: Image.asset(
-                                  Img.header,
-                                  fit: BoxFit.fill,
-                                ))),
-                      ],
-                    )),
-                    FlexibleSpaceBar(
-                      centerTitle: true,
-                      background: Stack(children: [
-                        Positioned.fill(child: background),
-                        Positioned.fill(
-                            child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppConsts.kDefaultPadding + 6, bottom: 54),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(S.current.homeDoctor,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700)),
-                              Text(S.current.feelSafe,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold))
-                            ],
-                          ),
-                        ))
-                      ]),
-                    ),
-                  ],
-                );
-              }),
-              // Make the initial height of the SliverAppBar larger than normal.
-              expandedHeight: 208,
-              pinned: true),
+
+          // SliverAppBar(
+          //     // Allows the user to reveal the app bar if they begin scrolling
+          //     // back up the list of items.
+          //     floating: false,
+          //     stretch: true,
+          //     elevation: 0,
+          //     // Display a placeholder widget to visualize the shrinking size.
+          //     flexibleSpace: LayoutBuilder(
+          //         builder: (BuildContext context, BoxConstraints constraints) {
+          //       var top = constraints.biggest.height;
+          //       var background = Image.asset(
+          //         Img.headerFaq,
+          //         fit: BoxFit.cover,
+          //         alignment: Alignment.bottomCenter,
+          //       );
+          //       return Stack(
+          //         children: [
+          //           Positioned.fill(
+          //               child: Stack(
+          //             children: [
+          //               Positioned.fill(
+          //                   child: Visibility(
+          //                       visible: top < 160,
+          //                       child: Image.asset(
+          //                         Img.header,
+          //                         fit: BoxFit.fill,
+          //                       ))),
+          //             ],
+          //           )),
+          //           FlexibleSpaceBar(
+          //             centerTitle: true,
+          //             background: Stack(children: [
+          //               Positioned.fill(child: background),
+          //               Positioned.fill(
+          //                   child: Padding(
+          //                 padding: const EdgeInsets.only(
+          //                     left: AppConsts.kDefaultPadding + 6, bottom: 54),
+          //                 child: Column(
+          //                   crossAxisAlignment: CrossAxisAlignment.start,
+          //                   mainAxisAlignment: MainAxisAlignment.end,
+          //                   children: [
+          //                     Text(S.current.homeDoctor,
+          //                         style: const TextStyle(
+          //                             color: Colors.white,
+          //                             fontSize: 20,
+          //                             fontWeight: FontWeight.w700)),
+          //                     Text(S.current.feelSafe,
+          //                         style: const TextStyle(
+          //                             color: Colors.white,
+          //                             fontSize: 16,
+          //                             fontWeight: FontWeight.bold))
+          //                   ],
+          //                 ),
+          //               ))
+          //             ]),
+          //           ),
+          //         ],
+          //       );
+          //     }),
+          //     // Make the initial height of the SliverAppBar larger than normal.
+          //     expandedHeight: 208,
+          //     pinned: true),
+
           // Next, create a SliverList
           SliverList(
             // Use a delegate to build items as they're scrolled on screen.
