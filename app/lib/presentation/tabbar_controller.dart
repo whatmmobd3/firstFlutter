@@ -55,11 +55,11 @@ class _TabbarControllerState extends State<TabbarController> {
 
   List<Widget> _buildScreens() {
     return [
-      const HomeScreen(),
+      FamilyScreen(),
+      HomeScreen(),
       Container(),
-      Container(),
-      Container(),
-      Container()
+      SupportScreen(),
+      ProfileScreen()
     ];
   }
 
