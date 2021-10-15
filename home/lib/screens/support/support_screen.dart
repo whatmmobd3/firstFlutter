@@ -12,14 +12,14 @@ import 'package:home_repository/entities/service_entity.dart';
 import 'widgets/big_banner.dart';
 import 'widgets/service_list.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class SupportScreen extends StatefulWidget {
+  const SupportScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SupportScreenState createState() => _SupportScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SupportScreenState extends State<SupportScreen> {
   var refreshController = RefreshController(
       initialRefresh: false, initialLoadStatus: LoadStatus.loading);
   var reconnected = false;
@@ -95,23 +95,23 @@ class _HomeScreenState extends State<HomeScreen> {
               pinned: true),
 
           // Next, create a SliverList
-          SliverList(
-            // Use a delegate to build items as they're scrolled on screen.
-            delegate: SliverChildBuilderDelegate(
-              // The builder function returns a ListTile with a title that
-              // displays the index of the current item.
-              (context, index) {
-                switch (index) {
-                  case 0:
-                    return ServiceList(press: (e) => pressService(context, e));
-                  case 1:
-                    return BigBanner(press: () => goToPackage(context));
-                }
-              },
-              // Builds 1000 ListTiles
-              childCount: 2,
-            ),
-          )
+          // SliverList(
+          //   // Use a delegate to build items as they're scrolled on screen.
+          //   delegate: SliverChildBuilderDelegate(
+          //     // The builder function returns a ListTile with a title that
+          //     // displays the index of the current item.
+          //     (context, index) {
+          //       switch (index) {
+          //         case 0:
+          //           return ServiceList(press: (e) => pressService(context, e));
+          //         case 1:
+          //           return BigBanner(press: () => goToPackage(context));
+          //       }
+          //     },
+          //     // Builds 1000 ListTiles
+          //     childCount: 2,
+          //   ),
+          // )
         ],
       ),
     );
