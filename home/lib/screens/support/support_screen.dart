@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:home/generated_images.dart';
 import 'package:home/l10n/generated/l10n.dart';
 
-const detailText1 = TextStyle(fontSize: 12, fontWeight: FontWeight.w300);
+const detailText2 = TextStyle(fontSize: 12, fontWeight: FontWeight.w300);
 
 class SupportScreen extends StatelessWidget {
   const SupportScreen({Key? key}) : super(key: key);
@@ -14,68 +14,7 @@ class SupportScreen extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
-        SliverAppBar(
-            // Allows the user to reveal the app bar if they begin scrolling
-            // back up the list of items.
-            floating: false,
-            stretch: true,
-            elevation: 0,
-            // Display a placeholder widget to visualize the shrinking size.
-            flexibleSpace: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-              var top = constraints.biggest.height;
-              var background = Image.asset(
-                Img.headerFaq,
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomCenter,
-              );
-              return Stack(
-                children: [
-                  Positioned.fill(
-                      child: Stack(
-                    children: [
-                      Positioned.fill(
-                          child: Visibility(
-                              visible: top < 160,
-                              child: Image.asset(
-                                Img.header,
-                                fit: BoxFit.fill,
-                              ))),
-                    ],
-                  )),
-                  FlexibleSpaceBar(
-                    centerTitle: true,
-                    background: Stack(children: [
-                      Positioned.fill(child: background),
-                      Positioned.fill(
-                          child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: AppConsts.kDefaultPadding + 6, bottom: 54),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(S.current.needHelp,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700)),
-                            Text(S.current.doctorHelp,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold))
-                          ],
-                        ),
-                      ))
-                    ]),
-                  ),
-                ],
-              );
-            }),
-            // Make the initial height of the SliverAppBar larger than normal.
-            expandedHeight: 150,
-            pinned: true),
+        Banner(),
         SliverList(delegate: SliverChildBuilderDelegate(
           (context, index) {
             switch (index) {
@@ -90,6 +29,81 @@ class SupportScreen extends StatelessWidget {
     ));
   }
 }
+
+class Banner extends StatefulWidget {
+
+  @override
+  _BannerState createState() => _BannerState();
+}
+
+class _BannerState extends State<Banner> {
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      // Allows the user to reveal the app bar if they begin scrolling
+      // back up the list of items.
+        floating: false,
+        stretch: true,
+        elevation: 0,
+        // Display a placeholder widget to visualize the shrinking size.
+        flexibleSpace: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              var top = constraints.biggest.height;
+              var background = Image.asset(
+                Img.headerFaq,
+                fit: BoxFit.cover,
+                alignment: Alignment.bottomCenter,
+              );
+              return Stack(
+                children: [
+                  Positioned.fill(
+                      child: Stack(
+                        children: [
+                          Positioned.fill(
+                              child: Visibility(
+                                  visible: top < 160,
+                                  child: Image.asset(
+                                    Img.header,
+                                    fit: BoxFit.fill,
+                                  ))),
+                        ],
+                      )),
+                  FlexibleSpaceBar(
+                    centerTitle: true,
+                    background: Stack(children: [
+                      Positioned.fill(child: background),
+                      Positioned.fill(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: AppConsts.kDefaultPadding + 6, bottom: 54),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(S.current.needHelp,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700)),
+                                Text(S.current.doctorHelp,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          ))
+                    ]),
+                  ),
+                ],
+              );
+            }),
+        // Make the initial height of the SliverAppBar larger than normal.
+        expandedHeight: 150,
+        pinned: true);
+  }
+}
+
 
 class SupportPage extends StatefulWidget {
   @override
@@ -152,7 +166,7 @@ class _SupportPageState extends State<SupportPage> {
                   Text('FAQs'),
                   Text(
                     S.current.searchFAQ,
-                    style: detailText1,
+                    style: detailText2,
                   ),
                 ],
               )
@@ -181,7 +195,7 @@ class _SupportPageState extends State<SupportPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(S.current.callCenter),
-                  Text(S.current.discussWithCS, style: detailText1),
+                  Text(S.current.discussWithCS, style: detailText2),
                 ],
               )
             ],
@@ -209,7 +223,7 @@ class _SupportPageState extends State<SupportPage> {
                   Text(S.current.sendMesseage),
                   Text(
                     S.current.sendNow,
-                    style: detailText1,
+                    style: detailText2,
                   ),
                 ],
               )
