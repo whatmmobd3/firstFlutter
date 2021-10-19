@@ -55,12 +55,12 @@ class SupportScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(S.current.homeDoctor,
+                            Text(S.current.needHelp,
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w700)),
-                            Text(S.current.feelSafe,
+                            Text(S.current.doctorHelp,
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -74,7 +74,7 @@ class SupportScreen extends StatelessWidget {
               );
             }),
             // Make the initial height of the SliverAppBar larger than normal.
-            expandedHeight: 208,
+            expandedHeight: 150,
             pinned: true),
         SliverList(delegate: SliverChildBuilderDelegate(
           (context, index) {
@@ -129,7 +129,7 @@ class _SupportPageState extends State<SupportPage> {
           ],
         ),
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(top: 50),
           child:
         GestureDetector(
 
@@ -218,7 +218,7 @@ class _SupportPageState extends State<SupportPage> {
         ),
                 ),
         Container(
-            margin: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 50),
             child:
         InkWell(
             onTap: getMessage,
