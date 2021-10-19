@@ -200,7 +200,9 @@ class _SupportPageState extends State<SupportPage> {
               )
             ],
           ),
-        ),),
+        ),
+
+        ),
         Container(
           margin: EdgeInsets.only(top: 20),
           child:

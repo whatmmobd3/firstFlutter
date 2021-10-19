@@ -15,19 +15,8 @@ class FamilyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
-        ),
-        title: const Text('Example title'),
-        actions: const [
-          IconButton(
-            icon: Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: null,
-          ),
-        ],
+          backgroundColor: Colors.blue,
+          title: Text(S.current.memberList)
       ),
       body: Container(child: FamilyPage()),
     );
@@ -52,8 +41,9 @@ class _SupportPageState extends State<FamilyPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Image.asset(
           Img.doctor,
@@ -62,8 +52,12 @@ class _SupportPageState extends State<FamilyPage> {
         ),
         Text(S.current.registerDescription),
         Container(
+
             margin: EdgeInsets.only(top: 50),
-            child: InkWell(
+            child:
+                Center(
+                  child:
+            InkWell(
                 onTap: getMessage,
                 child: Container(
                     padding: EdgeInsets.all(20),
@@ -76,7 +70,9 @@ class _SupportPageState extends State<FamilyPage> {
                         style: Theme.of(context)
                             .textTheme
                             .headline6!
-                            .copyWith(color: Colors.black))))),
+                            .copyWith(color: Colors.black))))
+        ),
+        ),
       ],
     );
   }
