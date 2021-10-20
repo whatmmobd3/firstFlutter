@@ -207,6 +207,7 @@ class _SupportPageState extends State<ProfilePage> {
               Checkbox(value: isEn,
                   checkColor: Colors.white,
                   activeColor: AppColors.azureRadiance,
+                  hoverColor: Colors.red,
                   shape: CircleBorder(),
                   onChanged: (bool? value){
                 setState(() {
