@@ -1,6 +1,8 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:home/generated_images.dart';
 import 'package:home/l10n/generated/l10n.dart';
 
@@ -8,6 +10,7 @@ const detailTextP = TextStyle(fontSize: 12, fontWeight: FontWeight.w300);
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+  // var bool isVietnamese = true;
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +118,8 @@ class _SupportPageState extends State<ProfilePage> {
     alignment: Alignment.bottomCenter,
   );
 
+  bool isEn = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -143,20 +148,14 @@ class _SupportPageState extends State<ProfilePage> {
                               .headline6!
                               .copyWith(color: Colors.black))))),
         ),
-        GestureDetector(
-          // onTap: () => getCenter(),
+        Container(
+          margin: EdgeInsets.only(top: 20.0),
           child: Row(
             children: <Widget>[
               SizedBox(
                 width: 20.0,
               ),
-              // Image.asset(
-              //   Ic.contact,
-              // ),
-              IconButton(
-                icon: Image.asset(Ic.contact),
-                onPressed: () => {},
-              ),
+              SvgPicture.asset(Ic.contact),
               SizedBox(
                 width: 20.0,
               ),
@@ -170,20 +169,57 @@ class _SupportPageState extends State<ProfilePage> {
             ],
           ),
         ),
-        Row(
-          children: [
-
-            Text(S.current.language),
-          ],
+        Container(
+          margin: EdgeInsets.only(top: 20.0),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 20.0,
+              ),
+              SvgPicture.asset(Ic.world),
+              SizedBox(
+                width: 20.0,
+              ),
+              Text(S.current.language),
+            ],
+          ),
         ),
-        Row(
-          children: [
-
-            Text(S.current.vn),
-            Text(S.current.en),
-
-          ],
-        )
+        Container(
+          margin: EdgeInsets.only(top: 10.0),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 50.0,
+              ),
+              Checkbox(value: !isEn,
+                  checkColor: Colors.white,
+                  activeColor: AppColors.azureRadiance,
+                  shape: CircleBorder(),
+                  onChanged: (bool? value){
+                setState(() {
+                  isEn = false;
+                });
+              }),
+              Text(S.current.vn),
+              SizedBox(
+                width: 30.0,
+              ),
+              Checkbox(value: isEn,
+                  checkColor: Colors.white,
+                  activeColor: AppColors.azureRadiance,
+                  shape: CircleBorder(),
+                  onChanged: (bool? value){
+                setState(() {
+                  isEn = true;
+                });
+              }),
+              // SizedBox(
+              //   width: 30.0,
+              // ),
+              Text(S.current.en),
+            ],
+          ),
+        ),
       ],
     );
   }

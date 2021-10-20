@@ -55,8 +55,8 @@ class _TabbarControllerState extends State<TabbarController> {
 
   List<Widget> _buildScreens() {
     return [
-      // HomeScreen(),
-      ProfileScreen(),
+      HomeScreen(),
+      // ProfileScreen(),
 
       FamilyScreen(),
       Container(),
